@@ -18,6 +18,10 @@ export const routes: Routes = [
     loadComponent: () => import('./search/search.page').then((m) => m.SearchPage),
   },
   {
+    path: 'music-player',
+    loadComponent: () => import('./music-player/music-player.page').then((m) => m.MusicPlayerPage),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
