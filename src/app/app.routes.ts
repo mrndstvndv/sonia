@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./signup/signup.page').then((m) => m.SignupPage),
   },
   {
+    path: 'search',
+    loadComponent: () => import('./search/search.page').then((m) => m.SearchPage),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
