@@ -6,12 +6,12 @@ import { PlaylistItem } from "./components/playlist-item.component";
 import { CommonModule } from "@angular/common";
 
 @Component({
-    selector: "playlist-page",
+    selector: "playlists-page",
     templateUrl: "playlists.page.html",
     standalone: true,
     imports: [IonButton, IonIcon, PlaylistItem, CommonModule]
 })
-export class PlaylistPage {
+export class PlaylistsPage {
     playlists = [
         { name: "Playlist 1", tracks: 10, duration: 69, imageUrl: "/assets/songs/blue.jpg" },
         { name: "Playlist 2", tracks: 5, duration: 42, imageUrl: "/assets/songs/blue.jpg" },
