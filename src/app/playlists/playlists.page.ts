@@ -7,7 +7,7 @@ import { CommonModule } from "@angular/common";
 
 @Component({
     selector: "playlist-page",
-    templateUrl: "playlist.page.html",
+    templateUrl: "playlists.page.html",
     standalone: true,
     imports: [IonButton, IonIcon, PlaylistItem, CommonModule]
 })
