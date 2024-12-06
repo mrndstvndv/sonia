@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-black text-white">
-  <header class="flex items-center justify-between p-2">
+  <header class="flex items-center justify-between p-2 border-b border-gray-800">
     <ion-button fill="clear" shape="round">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
@@ -14,11 +14,7 @@
 
       <ion-row scrollX="true" class="scroll-items">
         <ion-col size="auto" *ngFor="let song of popularSongs">
-          <app-song-item
-            [imageUrl]="song.imageUrl"
-            [songName]="song.songName"
-            [artist]="song.artist"
-          />
+          <app-song-item imageUrl="{{song.imageUrl}}" songName="{{song.songName}}" artist="{{song.artist}}" />
         </ion-col>
       </ion-row>
 
@@ -29,11 +25,7 @@
 
       <ion-row scrollX="true" class="scroll-items">
         <ion-col size="auto" *ngFor="let song of recentlyListened">
-          <app-song-item
-            [imageUrl]="song.imageUrl"
-            [songName]="song.songName"
-            [artist]="song.artist"
-          />
+          <app-song-item [imageUrl]="song.imageUrl" [songName]="song.songName" [artist]="song.artist" />
         </ion-col>
       </ion-row>
 
