@@ -7,7 +7,7 @@ import { IonImg } from '@ionic/angular/standalone';
   imports: [IonImg],
   template: `
     <div class="song-item">
-      <ion-img [src]="imageUrl" alt="{{songName}} - {{artist}}"></ion-img>
+      <img class="rounded mb-4" src="{{imageUrl}}" alt="{{songName}} - {{artist}}"/>
       <div class="song-info">
         <h3>{{ songName }}</h3>
         <p>{{ artist }}</p>
