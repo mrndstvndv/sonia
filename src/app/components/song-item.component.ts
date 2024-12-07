@@ -1,12 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { IonImg } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-song-item',
   standalone: true,
-  imports: [IonImg],
   template: `
-    <div class="song-item">
+    <div class="song-item my-4 mx-2">
       <img class="rounded mb-4" src="{{imageUrl}}" alt="{{songName}} - {{artist}}"/>
       <div class="song-info">
         <h3>{{ songName }}</h3>

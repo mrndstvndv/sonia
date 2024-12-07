@@ -10,6 +10,7 @@ import { CommonModule } from "@angular/common";
 @Component({
     selector: 'home-page',
     templateUrl: './home.page.html',
+    styleUrl: 'home.page.scss',
     imports: [IonButton, IonIcon, RouterModule, SidebarComponent, SongItemComponent, IonRow, IonCol, CommonModule],
     standalone: true
 })
