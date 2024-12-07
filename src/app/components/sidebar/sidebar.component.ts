@@ -24,8 +24,7 @@ export class SidebarComponent {
 
     menuItems = [
         { name: 'Home', icon: 'home-outline' },
-        { name: 'Explore', icon: 'compass-outline' },
-        { name: 'Library', icon: 'folder-outline' },
+        { name: 'Playlists', icon: 'folder-outline' },
     ];
 
     onToggleSidebar() {

@@ -3,12 +3,13 @@ import { RouterModule } from "@angular/router";
 import { IonContent, IonButton, IonIcon } from "@ionic/angular/standalone";
 import { addIcons } from "ionicons";
 import { arrowBack, bookmarkOutline, playOutline, playSkipBackOutline, playSkipForwardOutline } from "ionicons/icons";
+import { SidebarComponent } from "../components/sidebar/sidebar.component";
 
 @Component({
   selector: 'music-player',
   templateUrl: 'music-player.page.html',
   standalone: true,
-  imports: [IonContent, IonIcon, IonButton, RouterModule]
+  imports: [IonContent, IonIcon, IonButton, RouterModule, SidebarComponent]
 })
 export class MusicPlayerPage {
   title = 'Music Player';
@@ -26,6 +27,8 @@ export class MusicPlayerPage {
     ]
   };
 
+  isSidebarOpen = false;
+
   constructor() {
     addIcons({
       bookmarkOutline,
@@ -35,6 +38,10 @@ export class MusicPlayerPage {
       playSkipBackOutline
     })
   }
+
+    toggleSidebar() {
+        this.isSidebarOpen = !this.isSidebarOpen;
+    }
 
   goBack() {
     window.history.back();

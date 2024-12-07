@@ -4,12 +4,13 @@ import { addIcons } from "ionicons";
 import { add, chevronBackSharp } from "ionicons/icons";
 import { PlaylistItem } from "./components/playlist-item.component";
 import { CommonModule } from "@angular/common";
+import { SidebarComponent } from "../components/sidebar/sidebar.component";
 
 @Component({
     selector: "playlists-page",
     templateUrl: "playlists.page.html",
     standalone: true,
-    imports: [IonButton, IonIcon, PlaylistItem, CommonModule]
+    imports: [IonButton, IonIcon, PlaylistItem, CommonModule, SidebarComponent]
 })
 export class PlaylistsPage {
     playlists = [
@@ -17,6 +18,8 @@ export class PlaylistsPage {
         { name: "Playlist 2", tracks: 5, duration: 42, imageUrl: "/assets/songs/blue.jpg" },
         { name: "Playlist 3", tracks: 15, duration: 120, imageUrl: "/assets/songs/blue.jpg" }
     ]
+
+    isSidebarOpen = false;
 
     constructor() {
         addIcons({
@@ -27,5 +30,9 @@ export class PlaylistsPage {
 
     goBack() {
         window.history.back();
+    }
+
+    toggleSidebar() {
+        this.isSidebarOpen = !this.isSidebarOpen;
     }
 }

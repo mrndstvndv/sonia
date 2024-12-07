@@ -1,26 +1,32 @@
-<div class="flex flex-col h-screen bg-black text-white relative">
-  <!-- Header -->
-  <div class="flex items-center gap-4 p-2 border-b border-gray-800">
-    <ion-button fill="clear" shape="round" (click)="goBack()">
-      <ion-icon slot="icon-only" name="chevron-back-sharp"></ion-icon>
-    </ion-button>
-    <h1 class="text-xl font-semibold">Playlists</h1>
-  </div>
+<div class="flex h-screen bg-black text-white">
 
-  <!-- 
-    Playlist list 
-    TODO: Replace with a grid layout
-  -->
-  <main class="grid" *ngFor="let playlist of playlists">
-    <playlist-item imageUrl="{{playlist.imageUrl}}" playlistName="{{playlist.name}}" [duration]="playlist.duration"
-      [tracks]="playlist.tracks" />
-  </main>
+  <app-sidebar [isOpen]="isSidebarOpen" (toggleSidebar)="toggleSidebar()"></app-sidebar>
 
-  <!--Floating Action Button-->
-  <div class="absolute bottom-6 right-6">
-    <ion-button shape="round" class="w-14 h-14">
-      <ion-icon slot="icon-only" name="add"></ion-icon>
-    </ion-button>
+  <div class="flex-1 flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <div class="flex items-center gap-4 p-2 border-b border-gray-800">
+      <ion-button class="md:hidden" fill="clear" shape="round" (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-sharp"></ion-icon>
+      </ion-button>
+      <h1 class="md:px-2 text-xl font-semibold">Playlists</h1>
+      <ion-button class="invisible" fill="clear" shape="round" (click)="goBack()">
+      </ion-button>
+    </div>
+
+    <!-- Playlist list -->
+    <main class="grid" *ngFor="let playlist of playlists">
+      <playlist-item imageUrl="{{playlist.imageUrl}}" playlistName="{{playlist.name}}" [duration]="playlist.duration"
+        [tracks]="playlist.tracks" />
+    </main>
+
+    <!--Floating Action Button-->
+    <div class="absolute bottom-6 right-6">
+      <ion-button shape="round" class="w-14 h-14">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </div>
+
   </div>
 
 </div>
