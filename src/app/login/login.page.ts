@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LucideAngularModule, Play, Facebook } from 'lucide-angular';
 
 @Component({
@@ -9,8 +10,12 @@ import { LucideAngularModule, Play, Facebook } from 'lucide-angular';
 })
 
 export class LoginPage {
-  constructor() { }
+  constructor(private router: Router) { }
 
   readonly Facebook = Facebook;
   readonly Play = Play;
+
+  onClick() {
+    this.router.navigate(['home'])
+  }
 }
