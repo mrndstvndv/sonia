@@ -1,6 +1,6 @@
-import { Component, input, Input } from "@angular/core";
+import { Component, EventEmitter, input, Input, Output } from "@angular/core";
 import { addIcons } from "ionicons";
-import { shareSocialOutline } from "ionicons/icons";
+import { closeOutline, shareSocialOutline } from "ionicons/icons";
 import { IonButton, IonIcon } from "@ionic/angular/standalone";
 
 @Component({
@@ -13,12 +13,18 @@ export class PlaylistSongItem {
   @Input() imageUrl!: string;
   @Input() songName!: string;
   @Input() artist!: string;
+  @Output() onDelete = new EventEmitter<void>()
   duration = input('', { transform: (value: number) => this.convertSeconds(value) });
 
   constructor() {
     addIcons({
       shareSocialOutline,
+      closeOutline
     })
+  }
+
+  onClick() {
+    this.onDelete.emit()
   }
 
   convertSeconds(seconds: number): string {

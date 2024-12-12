@@ -16,29 +16,29 @@
     <main class="m-4 grid gap-2">
 
       <div class="grid grid-cols-2 grid-rows-2 gap-2 size-40">
-        <img class="rounded-md" *ngFor="let song of songs" src="{{song.imageUrl}}">
+        <img class="rounded-md" *ngFor="let song of songs().slice(0, 4)" src="{{song.imageUrl}}">
       </div>
 
       <div class="mt-6">
         <!--Playlist Name-->
         <h2 class="text-2xl font-semibold">J-Pop</h2>
         <p className="text-sm text-gray-400 font-semibold">Playlist • 2024</p>
-        <p className="text-sm text-gray-400">lentgth songs, 47 tracks • 52 minutes</p>
+        <p className="text-sm text-gray-400">25 tracks • 1 hour, 44 minutes</p>
       </div>
 
       <!--Songs-->
       <div class="grid gap-4 mt-6 mx-2">
-        <playlist-song-item *ngFor="let song of songs" imageUrl="{{song.imageUrl}}" artist="{{song.artist}}" songName="{{song.songName}}"></playlist-song-item>
+        <playlist-song-item *ngFor="let song of songs(); index as i" (onDelete)="onDelete(i)" imageUrl="{{song.imageUrl}}" artist="{{song.artist}}" songName="{{song.songName}}"></playlist-song-item>
       </div>
 
     </main>
 
     <!--Floating Action Button-->
-    <!--<div class="absolute bottom-6 right-6">-->
-    <!--  <ion-button shape="round" class="w-14 h-14">-->
-    <!--    <ion-icon slot="icon-only" name="add"></ion-icon>-->
-    <!--  </ion-button>-->
-    <!--</div>-->
+    <div class="absolute bottom-6 right-6">
+      <ion-button shape="round" class="w-14 h-14">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </div>
 
   </div>
 

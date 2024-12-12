@@ -15,9 +15,8 @@
     </div>
 
     <!-- Playlist list -->
-    <main class="grid" *ngFor="let playlist of playlists">
-      <playlist-item imageUrl="{{playlist.imageUrl}}" playlistName="{{playlist.name}}" [duration]="playlist.duration"
-        [tracks]="playlist.tracks" />
+    <main class="grid" *ngFor="let playlist of playlists; index as i">
+      <playlist-item [playlist]="playlist" (click)="playlistClicked(i)" />
     </main>
 
     <!--Floating Action Button-->

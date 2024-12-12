@@ -1,7 +1,8 @@
-import { Component, input, Input } from "@angular/core";
+import { Component, EventEmitter, input, Input, Output } from "@angular/core";
 import { addIcons } from "ionicons";
 import { shareSocialOutline } from "ionicons/icons";
 import { IonButton, IonIcon } from "@ionic/angular/standalone";
+import { Playlist } from "src/app/data";
 
 @Component({
   selector: 'playlist-item',
@@ -10,15 +11,18 @@ import { IonButton, IonIcon } from "@ionic/angular/standalone";
   templateUrl: 'playlist-item.component.html',
 })
 export class PlaylistItem {
-  @Input() imageUrl!: string;
-  @Input() playlistName!: string;
-  @Input() tracks!: number;
+  @Input() playlist!: Playlist;
+  @Output() click = new EventEmitter<void>()
   duration = input('', { transform: (value: number) => this.convertSeconds(value) });
 
   constructor() {
     addIcons({
       shareSocialOutline
     })
+  }
+
+  onClick() {
+    this.click.emit()
   }
 
   convertSeconds(seconds: number): string {

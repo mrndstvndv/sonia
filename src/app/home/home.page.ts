@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Router, RouterModule } from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { IonButton, IonIcon, IonRow, IonCol } from "@ionic/angular/standalone";
 import { addIcons } from "ionicons";
 import { menuOutline, searchOutline } from "ionicons/icons";
 import { SidebarComponent } from "../components/sidebar/sidebar.component";
 import { SongItemComponent } from "../components/song-item.component";
 import { CommonModule } from "@angular/common";
-import { withFetch } from "@angular/common/http";
+import { songs } from "../data";
 
 @Component({
   selector: 'home-page',
@@ -18,24 +18,7 @@ import { withFetch } from "@angular/common/http";
 export class HomePage {
   isSidebarOpen = false;
 
-  popularSongs = [
-    {
-      songName: "Reflect",
-      artist: "Gawr Gura",
-      imageUrl: "/assets/songs/reflect.jpg"
-    },
-    {
-      songName: "With A Smile",
-      artist: "Eraserheads",
-      imageUrl: "/assets/songs/eraser.jpg"
-    },
-    {
-      songName: "Blue",
-      artist: "yung kai",
-      imageUrl: "/assets/songs/blue.jpg"
-    },
-  ];
-
+  popularSongs = songs
   recentlyListened = [
     {
       songName: "Twinkling Ash",

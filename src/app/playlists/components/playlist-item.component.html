@@ -1,9 +1,9 @@
 <div class="flex items-center gap-4 p-4">
-    <img src="{{ imageUrl }}" alt="" class="w-12 h-12 rounded object-cover" />
+    <img src="{{ playlist.songs[0].imageUrl }}" alt="" class="w-12 h-12 rounded object-cover" />
     <div class="flex-1">
-        <h3 class="font-medium">{{ playlistName }}</h3>
+        <h3 class="font-medium">{{ playlist.title }}</h3>
         <p class="text-sm text-gray-400">
-            {{ duration() }} • {{ tracks }} {{ tracks > 1 ? 'tracks' : 'track' }}
+            1 hour • {{ playlist.songs.length }} {{ playlist.songs.length > 1 ? 'tracks' : 'track' }}
         </p>
     </div>
 

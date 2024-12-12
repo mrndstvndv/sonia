@@ -24,22 +24,13 @@ export class MusicPlayerPage {
 
   isSidebarOpen = false;
 
-  audio = new Audio("/assets/songs/reflect.opus");
+  audio = new Audio(this.song.songUrl);
   duration: WritableSignal<number> = signal(0)
   durationDisplay: Signal<string> = computed(() => formatTime(this.duration()))
   currentTime = signal(0)
   currentTimeDisplay: Signal<string> = computed(() => formatTime(this.currentTime()))
 
   constructor(private router: ActivatedRoute) {
-    this.audio.preload = "metadata"
-    this.audio.addEventListener("loadedmetadata", () => {
-      this.duration.set(this.audio.duration)
-    })
-
-    this.audio.ontimeupdate = (_: Event) => {
-      this.currentTime.set(this.audio.currentTime)
-    }
-
     addIcons({
       bookmarkOutline,
       arrowBack,
@@ -56,6 +47,15 @@ export class MusicPlayerPage {
       const song = songs.find(song => song.songName == p.name)
       if (song !== undefined) {
         this.song = song
+        this.audio = new Audio(song.songUrl)
+        this.audio.preload = "metadata"
+        this.audio.addEventListener("loadedmetadata", () => {
+          this.duration.set(this.audio.duration)
+        })
+
+        this.audio.ontimeupdate = (_: Event) => {
+          this.currentTime.set(this.audio.currentTime)
+        }
 
         extractColors(song.imageUrl).then(colors => {
           this.bgColor = colors[2].hex
