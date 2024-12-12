@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@ionic/angular": "^8.0.0",
+    "extract-colors": "^4.1.1",
     "ionicons": "^7.2.1",
     "lucide-angular": "^0.462.0",
     "ngx-tailwindcss": "1.0.5",
