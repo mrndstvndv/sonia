@@ -1,0 +1,13 @@
+<div class="flex items-center gap-4">
+    <img src="{{ imageUrl }}" alt="" class="w-12 h-12 rounded object-cover" />
+    <div class="flex-1">
+        <h3 class="font-medium">{{ songName }}</h3>
+        <p class="text-sm text-gray-400">
+          {{ artist }}
+        </p>
+    </div>
+
+    <ion-button fill="clear" shape="round">
+        <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+    </ion-button>
+</div>

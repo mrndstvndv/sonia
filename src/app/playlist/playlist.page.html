@@ -1,40 +1,45 @@
 <div class="flex h-screen bg-black text-white">
+
   <app-sidebar [isOpen]="isSidebarOpen" (toggleSidebar)="toggleSidebar()"></app-sidebar>
 
   <div class="flex-1 flex flex-col overflow-hidden">
 
-    <header class="flex items-center justify-between p-2 border-b border-gray-800">
-      <ion-button (click)="toggleSidebar()" fill="clear" shape="round">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+    <!-- Header -->
+    <div class="flex items-center gap-4 p-2 border-gray-800">
+      <ion-button fill="clear" shape="round" (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-sharp"></ion-icon>
       </ion-button>
-      <ion-button [routerLink]="['/search']" fill="clear" shape="round">
-        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      <ion-button class="invisible" fill="clear" shape="round" (click)="goBack()">
       </ion-button>
-    </header>
+    </div>
 
-    <main class="flex-1 px-4 py-2 space-y-8">
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Popular songs</h2>
+    <main class="m-4 grid gap-2">
 
-        <ion-row scrollX="true" class="scroll-items">
-          <ion-col size="auto" *ngFor="let song of popularSongs">
-            <app-song-item imageUrl="{{song.imageUrl}}" songName="{{song.songName}}" artist="{{song.artist}}" />
-          </ion-col>
-        </ion-row>
+      <div class="grid grid-cols-2 grid-rows-2 gap-2 size-40">
+        <img class="rounded-md" *ngFor="let song of songs" src="{{song.imageUrl}}">
+      </div>
 
-      </section>
+      <div class="mt-6">
+        <!--Playlist Name-->
+        <h2 class="text-2xl font-semibold">J-Pop</h2>
+        <p className="text-sm text-gray-400 font-semibold">Playlist • 2024</p>
+        <p className="text-sm text-gray-400">lentgth songs, 47 tracks • 52 minutes</p>
+      </div>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Recently listened</h2>
+      <!--Songs-->
+      <div class="grid gap-4 mt-6 mx-2">
+        <playlist-song-item *ngFor="let song of songs" imageUrl="{{song.imageUrl}}" artist="{{song.artist}}" songName="{{song.songName}}"></playlist-song-item>
+      </div>
 
-        <ion-row scrollX="true" class="scroll-items">
-          <ion-col size="auto" *ngFor="let song of recentlyListened">
-            <app-song-item [imageUrl]="song.imageUrl" [songName]="song.songName" [artist]="song.artist" />
-          </ion-col>
-        </ion-row>
-
-      </section>
     </main>
 
+    <!--Floating Action Button-->
+    <!--<div class="absolute bottom-6 right-6">-->
+    <!--  <ion-button shape="round" class="w-14 h-14">-->
+    <!--    <ion-icon slot="icon-only" name="add"></ion-icon>-->
+    <!--  </ion-button>-->
+    <!--</div>-->
+
   </div>
+
 </div>

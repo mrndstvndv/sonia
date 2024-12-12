@@ -4,20 +4,20 @@ import { shareSocialOutline } from "ionicons/icons";
 import { IonButton, IonIcon } from "@ionic/angular/standalone";
 
 @Component({
-  selector: 'playlist-item',
+  selector: 'playlist-song-item',
   standalone: true,
   imports: [IonButton, IonIcon],
-  templateUrl: 'playlist-item.component.html',
+  templateUrl: 'playlist-song-item.component.html',
 })
-export class PlaylistItem {
+export class PlaylistSongItem {
   @Input() imageUrl!: string;
-  @Input() playlistName!: string;
-  @Input() tracks!: number;
+  @Input() songName!: string;
+  @Input() artist!: string;
   duration = input('', { transform: (value: number) => this.convertSeconds(value) });
 
   constructor() {
     addIcons({
-      shareSocialOutline
+      shareSocialOutline,
     })
   }
 
