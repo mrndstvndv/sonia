@@ -1,8 +1,11 @@
 <div class="fixed inset-y-0 left-0 z-30 w-56 overflow-y-auto transition duration-300 ease-out transform translate-x-0 border-r border-gray-800 lg:translate-x-0 lg:static lg:inset-0 h-full bg-black"
     [ngClass]="{'translate-x-0 ease-out': isOpen, '-translate-x-full ease-in': !isOpen}">
-    <div class="flex items-center justify-center mt-8">
-        <div class="flex items-center">
-            <span class="text-2xl font-semibold">Sidebar</span>
+    <div class="flex items-center px-6 mt-8">
+        <div class="flex items-center gap-4">
+          <div class="size-10 bg-[#FFE4C8] rounded-full flex items-center justify-center mx-auto">
+            <lucide-icon [img]="Play" class="w-6 h-6 text-black fill-current" />
+          </div>
+            <span class="text-2xl font-semibold">Sonia</span>
         </div>
     </div>
 
