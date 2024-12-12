@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-song-item',
   standalone: true,
   template: `
-    <div class="song-item my-4 mx-2">
+    <div (click)="openSong()" class="song-item my-4 mx-2">
       <img class="rounded mb-4" src="{{imageUrl}}" alt="{{songName}} - {{artist}}"/>
       <div class="song-info">
         <h3>{{ songName }}</h3>
@@ -43,4 +44,10 @@ export class SongItemComponent {
   @Input() imageUrl!: string;
   @Input() songName!: string;
   @Input() artist!: string;
+
+  constructor(private router: Router) { }
+
+  openSong() {
+    this.router.navigate(['music-player'], { queryParams: { name: this.songName } })
+  }
 }
