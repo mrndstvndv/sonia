@@ -7,12 +7,10 @@ import { SidebarComponent } from "../components/sidebar/sidebar.component";
 import { Song, formatTime, songs } from "../data";
 import { CommonModule } from "@angular/common";
 import { extractColors } from "extract-colors";
-import { Pi } from "lucide-angular";
 
 @Component({
   selector: 'music-player',
   templateUrl: 'music-player.page.html',
-  styleUrl: 'music-player.page.scss',
   standalone: true,
   imports: [IonIcon, IonButton, RouterModule, SidebarComponent, CommonModule]
 })
@@ -21,6 +19,7 @@ export class MusicPlayerPage {
 
   song: Song = songs[0];
   bgColor = "";
+  accent = ""
   playing = false;
 
   isSidebarOpen = false;
@@ -60,6 +59,7 @@ export class MusicPlayerPage {
 
         extractColors(song.imageUrl).then(colors => {
           this.bgColor = colors[2].hex
+          this.accent = colors[5].hex
           console.log(this.bgColor)
         })
       }

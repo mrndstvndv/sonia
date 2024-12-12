@@ -8,13 +8,13 @@
     <div class="grid grid-rows-[auto,1fr] h-full" style="background-color: {{bgColor}}">
       <header class="flex items-center justify-between p-2">
         <ion-button (click)="goBack()" class="md:invisible" fill="clear" shape="round">
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          <ion-icon style="color: {{accent}}" slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
       </header>
 
       <main class="grid grid-rows-[auto,auto,auto,auto,auto] justify-center pt-4 text-center">
 
-        <img src="{{song.imageUrl}}" class="w-64 h-64 rounded-2xl">
+        <img src="{{song.imageUrl}}" class="w-64 h-64 rounded-2xl justify-self-center">
 
         <!--Song info-->
         <div clas="flex h-10 w-10 text-center bg-white">
@@ -29,21 +29,24 @@
 
         <!--Control Buttons-->
         <div>
-          <div class="flex gap-2 justify-center">
+          <div class="flex gap-2 justify-center items-center">
             <p>{{ currentTimeDisplay() }}</p>
-            <input class="" type="range" [value]="currentTime()" [max]="duration()" (input)="inputUpdate($event)">
+            <input
+              class="w-[250px]"
+              style="accent-color: {{accent}}"
+              type="range" [value]="currentTime()" [max]="duration()" (input)="inputUpdate($event)">
             <p>{{ durationDisplay() }}</p>
           </div>
 
           <div class="flex justify-center items-center gap-8 pt-4">
             <ion-button fill="clear">
-              <ion-icon slot="icon-only" name="play-skip-back-outline"></ion-icon>
+              <ion-icon style="color: {{accent}}" slot="icon-only" name="play-skip-back-outline"></ion-icon>
             </ion-button>
             <ion-button (click)="playPause()" fill="clear">
-              <ion-icon slot="icon-only" name="{{ playing ? 'pause-outline' : 'play-outline' }}"></ion-icon>
+              <ion-icon style="color: {{accent}}" slot="icon-only" name="{{ playing ? 'pause-outline' : 'play-outline' }}"></ion-icon>
             </ion-button>
             <ion-button fill="clear">
-              <ion-icon slot="icon-only" name="play-skip-forward-outline"></ion-icon>
+              <ion-icon style="color: {{accent}}" slot="icon-only" name="play-skip-forward-outline"></ion-icon>
             </ion-button>
           </div>
         </div>
