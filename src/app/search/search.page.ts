@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonButton, IonIcon } from "@ionic/angular/standalone";
+import { IonButton, IonIcon, IonInput } from "@ionic/angular/standalone";
 import { addIcons } from "ionicons";
 import { arrowBack } from "ionicons/icons";
 
@@ -7,7 +7,7 @@ import { arrowBack } from "ionicons/icons";
   selector: 'search-page',
   templateUrl: 'search.page.html',
   standalone: true,
-  imports: [IonButton, IonIcon],
+  imports: [IonButton, IonIcon, IonInput],
 })
 export class SearchPage {
   constructor() {

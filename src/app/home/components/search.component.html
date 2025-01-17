@@ -1,0 +1,16 @@
+<div class="relative p-2 rounded-md bg-white/10 border-gray-800 w-[500px]">
+  <form class="items-center text-start">
+    <ion-icon name="search-outline" class="mr-2"></ion-icon>
+
+    <input [(ngModel)]="query" (ngModelChange)="onInputChange()" (blur)="onBlur($event)" (focus)="onFocus()"
+      name="query" class="bg-black/0 ring-0 ring-transparent outline-none" placeholder="Search" />
+  </form>
+  <dialog id="search-results" tabindex="-1"
+    class="absolute left-0 w-full bg-zinc-900 mt-4 border-[1.5px] border-gray-800 shadow-sm rounded-md p-2 z-30">
+    <ul class="grid p-2 item-list gap-2" tabindex="-1">
+      <playlist-song-item *ngFor="let item of items" imageUrl="{{item.imageUrl}}" artist="{{item.artist}}"
+        songName="{{item.songName}}" [showDeleteIcon]="false"
+        (onClickItem)="openSong(item.songName)"></playlist-song-item>
+    </ul>
+  </dialog>
+</div>

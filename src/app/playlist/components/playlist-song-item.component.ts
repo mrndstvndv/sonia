@@ -2,18 +2,21 @@ import { Component, EventEmitter, input, Input, Output } from "@angular/core";
 import { addIcons } from "ionicons";
 import { closeOutline, shareSocialOutline } from "ionicons/icons";
 import { IonButton, IonIcon } from "@ionic/angular/standalone";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'playlist-song-item',
   standalone: true,
-  imports: [IonButton, IonIcon],
+  imports: [IonButton, IonIcon, CommonModule],
   templateUrl: 'playlist-song-item.component.html',
 })
 export class PlaylistSongItem {
   @Input() imageUrl!: string;
   @Input() songName!: string;
   @Input() artist!: string;
+  @Input() showDeleteIcon: boolean = true;
   @Output() onDelete = new EventEmitter<void>()
+  @Output() onClickItem = new EventEmitter<void>()
   duration = input('', { transform: (value: number) => this.convertSeconds(value) });
 
   constructor() {
@@ -25,6 +28,10 @@ export class PlaylistSongItem {
 
   onClick() {
     this.onDelete.emit()
+  }
+
+  onItemClick(): void {
+    this.onClickItem.emit()
   }
 
   convertSeconds(seconds: number): string {

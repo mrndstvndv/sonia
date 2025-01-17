@@ -10,12 +10,13 @@
       <ion-button class="block md:hidden" routerDirection="none" [routerLink]="['/search']" fill="clear" shape="round">
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
-      <button [routerLink]="['/search']"
-        class="hidden md:flex items-center text-start p-2 rounded-md bg-white/10 border-gray-800 w-[500px]"
-        value="Search..">
-        <ion-icon name="search-outline" class="mr-2"></ion-icon>
-        Search...
-      </button>
+      <app-search></app-search>
+      <!--<button [routerLink]="['/search']"-->
+      <!--  class="hidden md:flex items-center text-start p-2 rounded-md bg-white/10 border-gray-800 w-[500px]"-->
+      <!--  value="Search..">-->
+      <!--  <ion-icon name="search-outline" class="mr-2"></ion-icon>-->
+      <!--  Search...-->
+      <!--</button>-->
     </header>
 
     <main class="flex-1 px-4 md:px-16 py-2 md:py-8 space-y-8">

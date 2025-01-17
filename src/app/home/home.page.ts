@@ -7,12 +7,13 @@ import { SidebarComponent } from "../components/sidebar/sidebar.component";
 import { SongItemComponent } from "../components/song-item.component";
 import { CommonModule } from "@angular/common";
 import { songs } from "../data";
+import { SearchComponent } from "./components/search.component";
 
 @Component({
   selector: 'home-page',
   templateUrl: './home.page.html',
   styleUrl: 'home.page.scss',
-  imports: [IonButton, IonIcon, RouterModule, SidebarComponent, SongItemComponent, IonRow, IonCol, CommonModule],
+  imports: [IonButton, IonIcon, RouterModule, SidebarComponent, SongItemComponent, IonRow, IonCol, CommonModule, SearchComponent],
   standalone: true
 })
 export class HomePage {
