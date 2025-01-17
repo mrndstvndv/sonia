@@ -3,14 +3,18 @@
 
   <div class="flex-1 flex flex-col overflow-hidden">
 
-    <header class="flex items-center justify-between md:justify-center p-4">
+    <header class="flex items-center md:justify-center p-4">
       <ion-button class="block md:hidden" (click)="toggleSidebar()" fill="clear" shape="round">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
-      <ion-button class="block md:hidden" routerDirection="none" [routerLink]="['/search']" fill="clear" shape="round">
-        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-      </ion-button>
-      <app-search></app-search>
+      <!--<ion-button class="block md:hidden" routerDirection="none" [routerLink]="['/search']" fill="clear" shape="round">-->
+      <!--  <ion-icon slot="icon-only" name="search-outline"></ion-icon>-->
+      <!--</ion-button>-->
+
+      <div class="w-full md:w-[500px]">
+        <app-search></app-search>
+      </div>
+
       <!--<button [routerLink]="['/search']"-->
       <!--  class="hidden md:flex items-center text-start p-2 rounded-md bg-white/10 border-gray-800 w-[500px]"-->
       <!--  value="Search..">-->
