@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-song-item',
   standalone: true,
   template: `
-    <div (click)="openSong()" class="song-item my-4 mx-2">
+    <div (click)="openSong()" class="song-item my-2 p-2 rounded hover:bg-white/5">
       <img class="rounded mb-4" src="{{imageUrl}}" alt="{{songName}} - {{artist}}"/>
       <div class="song-info">
         <h3>{{ songName }}</h3>
