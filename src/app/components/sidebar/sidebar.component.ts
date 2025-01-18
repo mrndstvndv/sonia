@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { compassOutline, folderOutline, homeOutline } from 'ionicons/icons';
+import { compassOutline, folderOutline, homeOutline, personCircleOutline } from 'ionicons/icons';
 import { LucideAngularModule, Play } from 'lucide-angular';
 
 @Component({
@@ -19,14 +19,15 @@ export class SidebarComponent {
     addIcons({
       homeOutline,
       compassOutline,
-      folderOutline
+      folderOutline,
+      personCircleOutline
     })
   }
-
 
   readonly Play = Play;
 
   menuItems = [
+    { name: 'Profile', icon: 'person-circle-outline' },
     { name: 'Home', icon: 'home-outline' },
     { name: 'Playlists', icon: 'folder-outline' },
   ];
